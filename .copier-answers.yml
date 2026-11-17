@@ -1,0 +1,19 @@
+_commit: v1
+_src_path: gh:sowwic/copier-python-project
+author: Dima Shevchenko
+author_email: 47799401+sowwic@users.noreply.github.com
+develop_branch: develop
+github_user: sowwic
+github_workflow: true
+ide: nvim
+initial_version: 1.0.0
+package_name: nyx_usd
+package_slug: nyx_usd
+pin_python_version: true
+project_name: nyx-usd
+project_slug: nyx-usd
+project_type: library
+publish_to_pypi: true
+pypi_name: sowwic-nyx-usd
+python_version: '3.12'
+release_branch: main
