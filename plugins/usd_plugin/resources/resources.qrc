@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC>
+  <qresource prefix="/usd/">
+    <file>icons/usd_24.png</file>
+    <file>icons/usd_32.png</file>
+    <file>icons/usd_256.png</file>
+  </qresource>
+</RCC>
