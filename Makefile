@@ -12,3 +12,14 @@ MAKEFILES_MODULES = general/python general/repo general/pypi
 	@mkdir -p $(dir $@)
 	@curl -fsSL $(MAKEFILES_URL)/$*.mk -o $@
 include $(MAKEFILES_MODULES:%=.make/%.mk)
+
+# The Qt resources of the Nyx plugin, compiled next to their .qrc file.
+PLUGIN_QRC_FILES = $(shell find plugins -name resources.qrc)
+
+.PHONY: qrc
+qrc: ## Generate Python resources from the Qt .qrc files under plugins
+	$(call banner, Generating QRC resources...)
+	@for qrc in $(PLUGIN_QRC_FILES); do \
+		uv run pyside6-rcc $$qrc -o $$(dirname $$qrc)/resources_rc.py || exit 1; \
+	done
+	@printf "$(GREEN)QRC generation complete.$(RESET)\n"

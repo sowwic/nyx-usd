@@ -1,0 +1,138 @@
+"""USD operations run by Nyx nodes in an interpreter that has `pxr`.
+
+Plain functions that take and return JSON data. Nothing here imports Nyx or the
+bridge, so the package works in any application shipping `pxr` (an OpenUSD build,
+Maya, Houdini, Blender).
+
+A stage is identified by the identifier of its root layer, a string. The opened stages
+are kept in this package until they are closed, so one node can edit what the previous
+one opened. They stay open until `close_stage` or `close_all`, or the process ends.
+
+The nodes call `nyx_usd.ops.<name>`, so every operation is imported here.
+"""
+
+from .attributes import (
+    get_attribute,
+    get_attribute_at_time,
+    get_time_samples,
+    list_attributes,
+    remove_attribute,
+    set_attribute,
+    set_attribute_at_time,
+)
+from .composition import (
+    add_inherit,
+    add_payload,
+    add_reference,
+    add_sublayer,
+    add_variant_set,
+    export_to_string,
+    flatten_stage,
+    get_variants,
+    list_sublayers,
+    remove_sublayer,
+    set_variant_selection,
+)
+from .geometry import (
+    bind_material,
+    create_cube,
+    create_material,
+    create_mesh,
+    create_sphere,
+    get_bounding_box,
+    get_transform,
+    get_world_transform,
+    set_purpose,
+    set_transform,
+    set_visibility,
+)
+from .prims import (
+    add_prim,
+    copy_prim,
+    find_prims,
+    get_children,
+    get_parent,
+    get_prim_metadata,
+    get_prim_type,
+    has_prim,
+    list_prims,
+    move_prim,
+    remove_prim,
+    rename_prim,
+    set_active,
+    set_kind,
+    set_prim_metadata,
+)
+from .stage_settings import (
+    get_stage_info,
+    get_stage_metadata,
+    get_time_range,
+    set_default_prim,
+    set_fps,
+    set_meters_per_unit,
+    set_stage_metadata,
+    set_time_range,
+    set_up_axis,
+)
+from .stages import close_all, close_stage, create_stage, open_stage, save_stage
+
+__all__ = [
+    "add_inherit",
+    "add_payload",
+    "add_prim",
+    "add_reference",
+    "add_sublayer",
+    "add_variant_set",
+    "bind_material",
+    "close_all",
+    "close_stage",
+    "copy_prim",
+    "create_cube",
+    "create_material",
+    "create_mesh",
+    "create_sphere",
+    "create_stage",
+    "export_to_string",
+    "find_prims",
+    "flatten_stage",
+    "get_attribute",
+    "get_attribute_at_time",
+    "get_bounding_box",
+    "get_children",
+    "get_parent",
+    "get_prim_metadata",
+    "get_prim_type",
+    "get_stage_info",
+    "get_stage_metadata",
+    "get_time_range",
+    "get_time_samples",
+    "get_transform",
+    "get_variants",
+    "get_world_transform",
+    "has_prim",
+    "list_attributes",
+    "list_prims",
+    "list_sublayers",
+    "move_prim",
+    "open_stage",
+    "remove_attribute",
+    "remove_prim",
+    "remove_sublayer",
+    "rename_prim",
+    "save_stage",
+    "set_active",
+    "set_attribute",
+    "set_attribute_at_time",
+    "set_default_prim",
+    "set_fps",
+    "set_kind",
+    "set_meters_per_unit",
+    "set_prim_metadata",
+    "set_purpose",
+    "set_stage_metadata",
+    "set_time_range",
+    "set_transform",
+    "set_up_axis",
+    "set_variant_selection",
+    "set_visibility",
+]
