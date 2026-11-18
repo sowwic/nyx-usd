@@ -1,6 +1,11 @@
+import importlib.util
 import pathlib
 
 import pytest
+
+if importlib.util.find_spec("pxr") is None:
+    # The operations need USD, without it there is nothing to run them against.
+    collect_ignore_glob = ["test_ops/*"]
 
 
 @pytest.fixture(scope="session")

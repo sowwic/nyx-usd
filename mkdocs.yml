@@ -4,6 +4,11 @@ site_author: Dima Shevchenko
 theme:
   name: material
 
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - tables
+
 plugins:
   - search
   - mkdocs-autoapi:
@@ -32,5 +37,23 @@ plugins:
   - autorefs
 
 nav:
-  - User Guide: user/index.md
-  - Developer Guide: dev/index.md
+  - Home: index.md
+  - User Guide:
+      - user/index.md
+      - Installation: user/installation.md
+      - Starting a client: user/starting-a-client.md
+      - Using the nodes: user/graphs.md
+      - Nodes:
+          - user/nodes/index.md
+          - Stages: user/nodes/stages.md
+          - Prims: user/nodes/prims.md
+          - Attributes: user/nodes/attributes.md
+          - Stage settings: user/nodes/stage-settings.md
+          - Composition: user/nodes/composition.md
+          - Transforms, geometry, shading: user/nodes/geometry.md
+  - Developer Guide:
+      - dev/index.md
+      - Architecture: dev/architecture.md
+      - Adding an operation: dev/adding-operations.md
+      - Testing: dev/testing.md
+      - Releasing: dev/releasing.md
